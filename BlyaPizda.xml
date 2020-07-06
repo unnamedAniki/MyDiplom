@@ -1,0 +1,1141 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AccoutingDocs</name>
+    </assembly>
+    <members>
+        <member name="T:AccoutingDocs.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.App.ExitApp(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Выход из приложения
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:AccoutingDocs.App.Minimazed(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Скрывает окно
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:AccoutingDocs.App.CheckConnect">
+            <summary>
+            Проверка соединения
+            </summary>
+            <returns>Возвращает true или false</returns>
+        </member>
+        <member name="M:AccoutingDocs.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.DIalogContents.NewConnectionContentt">
+            <summary>
+            Логика взаимодействия для NewConnectionContentt.xaml
+            </summary>
+            <summary>
+            NewConnectionContentt
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.DIalogContents.NewConnectionContentt.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.DIalogContents.SendControl">
+            <summary>
+            Логика взаимодействия для SendControl.xaml
+            </summary>
+            <summary>
+            SendControl
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.DIalogContents.SendControl.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.DIalogContents.SendSelectedDoc">
+            <summary>
+            Логика взаимодействия для SendSelectedDoc.xaml
+            </summary>
+            <summary>
+            SendSelectedDoc
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.DIalogContents.SendSelectedDoc.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.DIalogContents.SupportView">
+            <summary>
+            Логика взаимодействия для SupportView.xaml
+            </summary>
+            <summary>
+            SupportView
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.DIalogContents.SupportView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.DIalogContents.UserDialogContent">
+            <summary>
+            Логика взаимодействия для UserDialogContent.xaml
+            </summary>
+            <summary>
+            UserDialogContent
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.DIalogContents.UserDialogContent.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.DIalogContents.UsingSelectedDoc">
+            <summary>
+            Логика взаимодействия для UsingSelectedDoc.xaml
+            </summary>
+            <summary>
+            UsingSelectedDoc
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.DIalogContents.UsingSelectedDoc.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.DirectoriesView">
+            <summary>
+            Логика взаимодействия для Directories.xaml
+            </summary>
+            <summary>
+            DirectoriesView
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.DirectoriesView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.documents">
+            <summary>
+            Логика взаимодействия для documents.xaml
+            </summary>
+            <summary>
+            documents
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.documents.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.HeadMenu">
+            <summary>
+            Логика взаимодействия для HeadMenu.xaml
+            </summary>
+            <summary>
+            HeadMenu
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.HeadMenu.Main_KeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            Вызов справки меню
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:AccoutingDocs.HeadMenu.Main_Closing(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Закрытие приложения
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:AccoutingDocs.HeadMenu.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.KindView">
+            <summary>
+            Логика взаимодействия для KindView.xaml
+            </summary>
+            <summary>
+            KindView
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.KindView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.Mail">
+            <summary>
+            Логика взаимодействия для Mails.xaml
+            </summary>
+            <summary>
+            Mail
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Mail.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.Main">
+            <summary>
+            Логика взаимодействия с Main.xaml
+            </summary>
+            <summary>
+            Main
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Main.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.ManageView">
+            <summary>
+            Логика взаимодействия для ManageView.xaml
+            </summary>
+            <summary>
+            ManageView
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ManageView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Models.Access.GetAccesses">
+            <summary>
+            Получить список уровней доступа
+            </summary>
+            <returns>Коллекицю уровней</returns>
+        </member>
+        <member name="M:AccoutingDocs.Models.Connection.Connect(AccoutingDocs.Models.Connection)">
+            <summary>
+            Создание строки подключения
+            </summary>
+            <returns>Возвращает строку подключения</returns>
+        </member>
+        <member name="M:AccoutingDocs.Models.Documents.Search(System.String)">
+            <summary>
+            Поиск данных
+            </summary>
+            <param name="name">Параметр поиска</param>
+            <returns>Найденный результат</returns>
+        </member>
+        <member name="M:AccoutingDocs.Models.MainMenu.GetMenu(System.String)">
+            <summary>
+            Главное меню программы
+            </summary>
+            <param name="Role">Роль пользователя</param>
+            <returns>Коллекцию элементов главного меню</returns>
+        </member>
+        <member name="M:AccoutingDocs.Models.MainMenu.GetPanel(System.String)">
+            <summary>
+            Панель быстрого доступа
+            </summary>
+            <param name="Role">Роль пользователя</param>
+            <returns>Коллекцию элементов панели быстрого доступа</returns>
+        </member>
+        <member name="M:AccoutingDocs.Models.MainMenu.GetDict">
+            <summary>
+            Панель справочников
+            </summary>
+            <returns>Список справочников</returns>
+        </member>
+        <member name="M:AccoutingDocs.Models.Register.Add(AccoutingDocs.Models.Users,AccoutingDocs.Models.Documents)">
+            <summary>
+            Добавление данных
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Models.Register.AddFromUsing(AccoutingDocs.Models.Users,AccoutingDocs.Models.Documents)">
+            <summary>
+            Добавление данных при использованнии документов
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Models.Register.Search(System.String)">
+            <summary>
+            Поиск данных
+            </summary>
+            <param name="name">Параметр поиска</param>
+            <returns>Найденный результат</returns>
+        </member>
+        <member name="M:AccoutingDocs.Models.Staffdocuments.Add(AccoutingDocs.Models.Users,AccoutingDocs.Models.Documents,System.String)">
+            <summary>
+            Добавление данных
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.OrganizationView">
+            <summary>
+            Логика взаимодействия для OrganizationView.xaml
+            </summary>
+            <summary>
+            OrganizationView
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.OrganizationView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.RegisterView">
+            <summary>
+            Логика взаимодействия для RegisterView.xaml
+            </summary>
+            <summary>
+            RegisterView
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.RegisterView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.ReportView">
+            <summary>
+            Логика взаимодействия для ReportView.xaml
+            </summary>
+            <summary>
+            ReportView
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ReportView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.RolesView">
+            <summary>
+            Логика взаимодействия для RolesView.xaml
+            </summary>
+            <summary>
+            RolesView
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.RolesView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.Staffs">
+            <summary>
+            Логика взаимодействия для Staffs.xaml
+            </summary>
+            <summary>
+            Staffs
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Staffs.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.Status_">
+            <summary>
+            Логика взаимодействия для Status.xaml
+            </summary>
+            <summary>
+            Status_
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Status_.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Supports.DialogService.GetFileName">
+            <summary>
+            Получить имя файла
+            </summary>
+            <returns>Возращает строку с наименованием файла</returns>
+        </member>
+        <member name="M:AccoutingDocs.Supports.DialogService.GetFilePath">
+            <summary>
+            Получить путь к файлу
+            </summary>
+            <returns>Возращает строку с путем файла</returns>
+        </member>
+        <member name="M:AccoutingDocs.Supports.DocumentView.GetName">
+            <summary>
+            Возвращает имя документа
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AccoutingDocs.Supports.DocumentView.AddDocumentToViewer(System.String)">
+            <summary>
+            Добавляет в компонент просмотра документа созданный документ
+            </summary>
+            <returns>Возвращает документ</returns>
+        </member>
+        <member name="M:AccoutingDocs.Supports.DocumentView.CreateDoc(System.Windows.Controls.FlowDocumentScrollViewer,System.DateTime,System.DateTime)">
+            <summary>
+            Создает отчет об использовании внутренних документов за указанный период
+            </summary>
+            <param name="viewer">Вывод созданного документа</param>
+        </member>
+        <member name="M:AccoutingDocs.Supports.DocumentView.CreateSendingDoc(System.Windows.Controls.FlowDocumentScrollViewer,System.DateTime,System.DateTime)">
+            <summary>
+            Создает отчет об исходящих документов за указанный период
+            </summary>
+            <param name="viewer">Вывод созданного документа</param>
+        </member>
+        <member name="M:AccoutingDocs.Supports.DocumentView.NewDoc">
+            <summary>
+            Проверка наличия уже созданного отчета
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Supports.DocumentView.CreateStaffReport(System.Windows.Controls.FlowDocumentScrollViewer,AccoutingDocs.Models.Staff)">
+            <summary>
+            Создает Отчет об использовании внутренних документов на указанном подразделении
+            </summary>
+            <param name="viewer">Вывод созданного документа</param>
+        </member>
+        <member name="M:AccoutingDocs.Supports.DocumentView.CreatePeriodReport(System.Windows.Controls.FlowDocumentScrollViewer,System.DateTime,System.DateTime)">
+            <summary>
+            Создает Отчет о поступлении документов за указанный период
+            </summary>
+            <param name="viewer">Вывод созданного документа</param>
+        </member>
+        <member name="M:AccoutingDocs.Supports.DocumentView.FolderCreate">
+            <summary>
+            Созданиее папки для отчетов
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Supports.MailLoader.Receive(System.Windows.Controls.DataGrid)">
+            <summary>
+            Добавление в таблицу всех писем с почтового адресса
+            </summary>
+            <param name="dataGrid">Таблица для вывода</param>
+        </member>
+        <member name="M:AccoutingDocs.Supports.EnableDragHelper.OnLoaded(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            При загрузки объекта и его аргументов
+            </summary>
+            <param name="dependencyObject"></param>
+            <param name="dependencyPropertyChangedEventArgs"></param>
+        </member>
+        <member name="M:AccoutingDocs.Supports.EnableDragHelper.UIElementOnMouseMove(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>
+            Повеедения элемента во время пеередвижения мышки
+            </summary>
+            <param name="sender"></param>
+            <param name="mouseEventArgs"></param>
+        </member>
+        <member name="M:AccoutingDocs.Supports.EnableDragHelper.SetEnableDrag(System.Windows.DependencyObject,System.Boolean)">
+            <summary>
+            Устанавливает включение перетаскивания
+            </summary>
+            <param name="element"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:AccoutingDocs.Supports.EnableDragHelper.GetEnableDrag(System.Windows.DependencyObject)">
+            <summary>
+            Получение включение перетаскивания
+            </summary>
+            <param name="element"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:AccoutingDocs.Supports.PasswordHasher">
+            <summary>
+            Методы хеширования/проверки пароля
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Supports.PasswordHasher.HashPassword(System.String)">
+            <summary>
+            Хеширование пароля
+            </summary>
+            <param name="password">Пароль</param>
+            <returns>Хеш пароля</returns>
+        </member>
+        <member name="M:AccoutingDocs.Supports.PasswordHasher.VerifyHashedPassword(System.String,System.String)">
+            <summary>
+            Проверка хеширвоанного пароля
+            </summary>
+            <param name="hashedPassword">Захешированный пароль</param>
+            <param name="password">Вводимый пользователем пароль</param>
+            <returns></returns>
+        </member>
+        <member name="T:AccoutingDocs.TypeView">
+            <summary>
+            Логика взаимодействия для TypeView.xaml
+            </summary>
+            <summary>
+            TypeView
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.TypeView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.Validation.ValidationRules.Validate(System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Валидация данных
+            </summary>
+            <param name="value">Значение</param>
+            <param name="ci"></param>
+            <returns>Результат валидации</returns>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.AuthViewModel.Auth">
+            <summary>
+            Авторизация
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.AuthViewModel.GetRole">
+            <summary>
+            Получение роли
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.OpenCommand">
+            <summary>
+            Команда открытия диалога
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.OpenEditCommand">
+            <summary>
+            Команда открытия диалога редактирования 
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.OpenSendingCommand">
+            <summary>
+            Команда открытия диалога на отправление выбранного документа
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.OpenToCreateSendingCommand">
+            <summary>
+            Команда открытия диалога на отправление выбранного документа
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.OpenUsingCommand">
+            <summary>
+            Команда открытия диалога на использованние выбранного документа
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.GetFileName">
+            <summary>
+            Команда получения имени файла
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.Search">
+            <summary>
+            Команда поиска
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.Refresh">
+            <summary>
+            Команда обновления
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.GetFilePath">
+            <summary>
+            Команда получения пути файла
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.AddDocument">
+            <summary>
+            Команда добавления документа
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.EditDocument">
+            <summary>
+            Команда добавления документа
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.ChangeStatus">
+            <summary>
+            Команда на использование документа
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.CreateSend">
+            <summary>
+            Команда на отправку документа
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.ToSend">
+            <summary>
+            Команда на отправку документа
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.Return">
+            <summary>
+            Команда возвращения из архива документа
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.GetUsingDocs">
+            <summary>
+            Команда загрузки коллекции внутренних документов
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.GetSendingDocs">
+            <summary>
+            Команда загрузки коллекции исходящих документов
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.ToArchieve">
+            <summary>
+            Команда на архивирование документа
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.DocumentViewModel.Delete">
+            <summary>
+            Удалить выбранный документ
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.GetAccess">
+            <summary>
+            Получение уровня доступа текущего пользователя
+            </summary>
+            <returns>Уровень доступа</returns>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.Validate">
+            <summary>
+            Валидация данных
+            </summary>
+            <returns>Результат валидации</returns>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.ValidateType">
+            <summary>
+            Валидация данных таблицы типов документов
+            </summary>
+            <returns>Результат валидации</returns>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.GetDocumentData">
+            <summary>
+            Загружает в коллекцию данные из таблицы Document, включая данные по внешним ключам
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.GetUsingDocData">
+            <summary>
+            Загружает в коллекцию данные об внутренних документах организации
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.GetSendingDocData">
+            <summary>
+            Загружает в коллекцию данные об исходящих документах организации
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.CheckDates">
+            <summary>
+            Проверка дат для перемещения в архив
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.GetTypeData">
+            <summary>
+            Загружает в коллекцию данные из таблицы Type, включая данные по внешним ключам
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.GetStatusData">
+            <summary>
+            Загружает в коллекцию данные из таблицы Status, включая данные по внешним ключам
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.GetOrganizationData">
+            <summary>
+            Загружает в коллекцию данные из таблицы Organization, включая данные по внешним ключам
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.GetUsersData">
+            <summary>
+            Загружает в коллекцию данные из таблицы Users, включая данные по внешним ключам
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.GetSearchResult(System.String)">
+            <summary>
+            Получить результат фильтрации
+            </summary>
+            <param name="text">Параметр фильтра</param>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.DocumentViewModel.ClearFields">
+            <summary>
+            Очистка полей
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.KindViewModel.AddCommand">
+            <summary>
+            Команда добавления
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.KindViewModel.EditCommand">
+            <summary>
+            Команда редактирования
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.KindViewModel.RemoveCommand">
+            <summary>
+            Команда удаления
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.KindViewModel.Search">
+            <summary>
+            Команда поиска
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.KindViewModel.GetKind">
+            <summary>
+            Загружает данные из таблицы Виды документов в коллекцию
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.KindViewModel.ValidateKind">
+            <summary>
+            Валидация
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.KindViewModel.GetSearchResult(System.String)">
+            <summary>
+            Получения результата поиска
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.MainMenuViewModel.RecoverData">
+            <summary>
+            Команда восстановления данных в БД
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.MainMenuViewModel.SaveAll">
+            <summary>
+            Команда сохранения данных из БД
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.MainMenuViewModel.OpenNewConnectionCommand">
+            <summary>
+            Команда открытия окна для создания нового подключения
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.MainMenuViewModel.NewConnectionCommand">
+            <summary>
+            Команда создания нового подключения
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.MainMenuViewModel.ExitApp">
+            <summary>
+            Выход из приложения
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.MainMenuViewModel.ExitToAuth">
+            <summary>
+            Выход на форму авторизации
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.MainMenuViewModel.Help">
+            <summary>
+            Справочная информация
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.MainMenuViewModel.SavingData(AccoutingDocs.Models.documentContext)">
+            <summary>
+            Сохраняет данные базы данных в json формате
+            </summary>
+            <param name="context">Контекст базы данных</param>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.MainMenuViewModel.Recover(AccoutingDocs.Models.documentContext)">
+            <summary>
+            Восстанавливает данные из созданных json файлов
+            </summary>
+            <param name="context">Контекст базы данных</param>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ManageViewModel.Cancel">
+            <summary>
+            Команда отмены изменений
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ManageViewModel.Apply">
+            <summary>
+            Команда примeнения изменений
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ManageViewModel.OpenConfirm">
+            <summary>
+            Команда открытия диалогового окна
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ManageViewModel.Confirm">
+            <summary>
+            Команда подтверждения выполнения
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ManageViewModel.Refresh">
+            <summary>
+            Команда обновления
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.ManageViewModel.GetData">
+            <summary>
+            Получение списка используемых документов
+            </summary>
+        </member>
+        <member name="T:AccoutingDocs.ViewModels.OrganizationViewModel">
+            <summary>
+            Логика взаимодействия с формой Организация
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.OrganizationViewModel.#ctor">
+            <summary>
+            Конструктор класса
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.OrganizationViewModel.OpenCommand">
+            <summary>
+            Команда открытия диалогового окна
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.OrganizationViewModel.AddCommand">
+            <summary>
+            Команда добавления
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.OrganizationViewModel.EditCommand">
+            <summary>
+            Команда редактирования таблицы Organization 
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.OrganizationViewModel.OpenEditCommand">
+            <summary>
+            Команда открытия диалогового окна на редактирование
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.OrganizationViewModel.RemoveCommand">
+            <summary>
+            Команда удаления из таблицы Organization 
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.OrganizationViewModel.GetData">
+            <summary>
+            Получения данных из таблицы Организации в коллекцию
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.OrganizationViewModel.Validate">
+            <summary>
+            Валидация
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.RegisterViewModel.Search">
+            <summary>
+            Команда поиска
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.RegisterViewModel.Refresh">
+            <summary>
+            Команда обновления
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RegisterViewModel.GetRegisterData">
+            <summary>
+            Загружает в коллекцию данные об входящих документах организации
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RegisterViewModel.GetUsingDocData">
+            <summary>
+            Загружает в коллекцию данные об внутренних документах организации
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RegisterViewModel.GetSendingDocData">
+            <summary>
+            Загружает в коллекцию данные об исходящих документах организации
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RegisterViewModel.GetTypeData">
+            <summary>
+            Загружает в коллекцию данные из таблицы Type, включая данные по внешним ключам
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RegisterViewModel.GetStatusData">
+            <summary>
+            Загружает в коллекцию данные из таблицы Status, включая данные по внешним ключам
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RegisterViewModel.GetOrganizationData">
+            <summary>
+            Загружает в коллекцию данные из таблицы Organization, включая данные по внешним ключам
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RegisterViewModel.GetUsersData">
+            <summary>
+            Загружает в коллекцию данные из таблицы Users, включая данные по внешним ключам
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RegisterViewModel.GetSearchResult(System.String)">
+            <summary>
+            Получить результат фильтрации
+            </summary>
+            <param name="text">Параметр фильтра</param>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ReportViewModel.OpenDialog">
+            <summary>
+            Открыть диалоговое окно
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ReportViewModel.GetFilePath">
+            <summary>
+            Получить путь файла
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ReportViewModel.CreateRegisterUsing">
+            <summary>
+            Создать отчет об использовании внутренних документов за период
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ReportViewModel.CreateSendingRegister">
+            <summary>
+            Создать отчет об исходящих документах за период
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ReportViewModel.CreatePeriodReport">
+            <summary>
+            Создать отчет по поступившим документам за период
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ReportViewModel.CreateStaffDocument">
+            <summary>
+            Создать отчет об использовании внутренних документов на предприятии
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ReportViewModel.OpenCommand">
+            <summary>
+            Открыть диалоговое окно выбора подразделений
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.ReportViewModel.OpenReportCommand">
+            <summary>
+            Открыть созданный отчет в MS Word
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.RolesViewModel.AddCommand">
+            <summary>
+            Команда на добавление новой роли
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.RolesViewModel.EditCommand">
+            <summary>
+            Команда редактирования роли
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.RolesViewModel.RemoveCommand">
+            <summary>
+            Команда удаления роли
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.RolesViewModel.AddRoleCommand">
+            <summary>
+            Команда на добавление роли пользователю
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.RolesViewModel.DeleteRoleCommand">
+            <summary>
+            Команда на удаление роли пользователю
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RolesViewModel.GetData">
+            <summary>
+            Получение данных из таблиц
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RolesViewModel.GetRole">
+            <summary>
+            Получение ролей
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RolesViewModel.Clear">
+            <summary>
+            Очистка полей
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RolesViewModel.Edit">
+            <summary>
+            Редактирование ролей
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.RolesViewModel.Add">
+            <summary>
+            Добавление ролей
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.StaffdocumentsViewModel.OpenConfirm">
+            <summary>
+            Открытие диалогового окна
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.StaffdocumentsViewModel.Confirm">
+            <summary>
+            Подтверждение выполнения работы с документом
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.StaffdocumentsViewModel.GetData">
+            <summary>
+            Получение списка используемых документов
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.StaffsViewModel.AddCommand">
+            <summary>
+            Команда добавления
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.StaffsViewModel.EditCommand">
+            <summary>
+            Команда редактирования
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.StaffsViewModel.RemoveCommand">
+            <summary>
+            Команда удаления
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.StaffsViewModel.Validate">
+            <summary>
+            Валиидация данных
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.StaffsViewModel.GetData">
+            <summary>
+            Получаение списка подразделений из таблицы
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.TypeViewModel.OpenCommand">
+            <summary>
+            Команда на открытия диалогового окна
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.TypeViewModel.Refresh">
+            <summary>
+            Команда обновления данных
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.TypeViewModel.AddCommand">
+            <summary>
+            Команда добавления в таблицу Type
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.TypeViewModel.EditCommand">
+            <summary>
+            Команда редактирования таблицы Type 
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.TypeViewModel.RemoveCommand">
+            <summary>
+            Команда удаления из таблицы Type 
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.TypeViewModel.GetData">
+            <summary>
+            Получение записей из таблицы Типы документов в коллекцию
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.TypeViewModel.Clear">
+            <summary>
+            Очистка полей
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.TypeViewModel.GetKinds">
+            <summary>
+            Получение данных из таблицы Виды документов в коллекцию
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.TypeViewModel.Validate">
+            <summary>
+            Валидация данных
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.UserViewModel.OpenCommand">
+            <summary>
+            Команда открытия диалогового окна на добавление в таблицу Users 
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.UserViewModel.AddCommand">
+            <summary>
+            Команда добавления
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.UserViewModel.EditCommand">
+            <summary>
+            Команда редактирования таблицы Users 
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.UserViewModel.OpenEditCommand">
+            <summary>
+            Команда открытия диалогового окна на редактирование в таблицу Users 
+            </summary>
+        </member>
+        <member name="P:AccoutingDocs.ViewModels.UserViewModel.RemoveCommand">
+            <summary>
+            Команда удаления из таблицы Users 
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.UserViewModel.GetData">
+            <summary>
+            Получение данных из таблицы Пользователи в коллекцию 
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.UserViewModel.Validate">
+            <summary>
+            Валидация данных
+            </summary>
+        </member>
+        <member name="M:AccoutingDocs.ViewModels.UserViewModel.Clear">
+            <summary>
+            Очистка полей
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>

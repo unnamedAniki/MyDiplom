@@ -1,0 +1,229 @@
+﻿<UserControl x:Class="AccoutingDocs.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccoutingDocs"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:system1="clr-namespace:System;assembly=System.Runtime"
+        xmlns:viewmodel="clr-namespace:AccoutingDocs.ViewModels"
+        xmlns:Validation="clr-namespace:AccoutingDocs.Validation"
+        mc:Ignorable="d" MinHeight="600" MinWidth="800"
+        FontFamily="Source Sans Pro ExtraLight" 
+        FontSize="18">
+
+    <UserControl.DataContext>
+        <viewmodel:UserViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <Style x:Key="PanelButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ValidateText" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFilledTextFieldTextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True"> 
+                    <Setter Property="Margin" Value="4"/>
+                    <Setter Property="Foreground" Value="Red"/>
+                    <Setter Property="Background" Value="CadetBlue"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <materialDesign:DialogHost
+        DialogTheme="Dark">
+        <materialDesign:DialogHost.DialogContent>
+            <StackPanel
+                MinWidth="600"
+                Background="#0277bd"
+                Margin="3"
+                Name = "DialogContent">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Foreground="White"
+                    Margin="10">
+                Добавление/редактирование пользователя
+                </TextBlock>
+                <UniformGrid Columns="2"
+                             Rows="4">
+                <TextBox MinWidth="150" Style="{StaticResource ValidateText}"  Foreground="Aquamarine" 
+                         materialDesign:HintAssist.Hint="Имя пользователя (Логин)" materialDesign:HintAssist.Foreground="Aquamarine"
+                         x:Name="Login"
+                         Margin="10 20" MaxLength="255">
+                    <TextBox.Text>
+                        <Binding Path="UserName" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                            <Binding.ValidationRules>
+                                <Validation:ValidationRules/>
+                                <ExceptionValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                    <TextBox MinWidth="150" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  Foreground="Aquamarine"    
+                         materialDesign:HintAssist.Hint="Фамилия" materialDesign:HintAssist.Foreground="Aquamarine"
+                         Text="{Binding Fam}"
+                         x:Name="Name"
+                         Margin="10 20" MaxLength="255"/>
+                    <TextBox MinWidth="150" Style="{StaticResource ValidateText}"  Foreground="Aquamarine" 
+                         materialDesign:HintAssist.Hint="Электронный адрес почты" materialDesign:HintAssist.Foreground="Aquamarine"
+                         x:Name="email"
+                         Margin="10 20" MaxLength="255">
+                        <TextBox.Text>
+                            <Binding Path="Email" UpdateSourceTrigger="PropertyChanged" NotifyOnValidationError="True">
+                                <Binding.ValidationRules>
+                                    <Validation:ValidationRules/>
+                                    <ExceptionValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <TextBox MinWidth="150" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  Foreground="Aquamarine"    
+                         materialDesign:HintAssist.Hint="Имя" materialDesign:HintAssist.Foreground="Aquamarine"
+                         Text="{Binding Name}"
+                         x:Name="Fam"
+                         Margin="10 20" MaxLength="255"/>
+                    <TextBox MinWidth="150" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  Foreground="Aquamarine"    
+                         materialDesign:HintAssist.Hint="Пароль" materialDesign:HintAssist.Foreground="Aquamarine"
+                         Text="{Binding PasswordHash}"
+                         x:Name="Password"
+                         Margin="10 20" MaxLength="255"/>
+                    <TextBox MinWidth="150" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  Foreground="Aquamarine"    
+                         materialDesign:HintAssist.Hint="Отчество" materialDesign:HintAssist.Foreground="Aquamarine"
+                         Text="{Binding LastName}"
+                         x:Name="LastName"
+                         Margin="10 20" MaxLength="255"/>
+                    <TextBox MinWidth="150" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  Foreground="Aquamarine"    
+                         materialDesign:HintAssist.Hint="Повторите пароль" materialDesign:HintAssist.Foreground="Aquamarine"
+                         Text="{Binding PasswordConfirm}"
+                         x:Name="PasswordConfirm"
+                         Margin="10 20" MaxLength="255"/>
+                <ComboBox MinWidth="150"  Style="{StaticResource MaterialDesignFloatingHintComboBox}"  Foreground="Aquamarine"    
+                         materialDesign:HintAssist.Hint="Выберите подразделение" materialDesign:HintAssist.Foreground="Aquamarine"
+                         ItemsSource="{Binding Staffs}"
+                         DisplayMemberPath="Staff_Name"
+                         SelectedItem="{Binding SelectedStaff, UpdateSourceTrigger=PropertyChanged}"
+                         x:Name="Staffs"
+                         Margin="10 20" />
+                </UniformGrid>
+                <StackPanel
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+                    <Button
+                        Style="{StaticResource PanelButton}"
+                        IsDefault="True"
+                        Margin="0 8 8 0"
+                        Command="{Binding AddCommand}">
+                        Добавить
+                    </Button>
+                    <Button
+                        Style="{StaticResource PanelButton}"
+                        IsDefault="True"
+                        Margin="0 8 8 0"
+                        Command="{Binding EditCommand}">
+                        Редактировать
+                    </Button>
+                    <Button
+                        Style="{StaticResource PanelButton}"
+                        IsCancel="True"
+                        Margin="0 8 8 0"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                        <Button.CommandParameter>
+                            <system1:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                False
+                            </system1:Boolean>
+                        </Button.CommandParameter>
+                        Отмена
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid
+            HorizontalAlignment="Stretch"
+            Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <DataGrid x:Name="UsersTable" 
+                    IsReadOnly="True" 
+                    AutoGenerateColumns="False"
+                    CanUserResizeRows="False"
+                    CanUserResizeColumns="False"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="3"
+                    SelectionMode="Single"
+                    MinHeight="400"
+                    Background="#0277bd"
+                    Foreground="White"
+                    GridLinesVisibility="None"
+                    materialDesign:DataGridAssist.CellPadding="5"
+                    materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                    ItemsSource="{Binding User, UpdateSourceTrigger=PropertyChanged}"
+                    SelectedItem="{Binding SelectedUser, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Имя пользователя" Binding="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Электронный адрес" Binding="{Binding Email, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Подразделение" Binding="{Binding Staff.Staff_Name, UpdateSourceTrigger=PropertyChanged}"/>
+                </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="5">
+                                <TextBlock Text=" Фамилия: " />
+                                <TextBlock Text="{Binding Fam, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="5">
+                                <TextBlock Text=" Имя: " />
+                                <TextBlock Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="5">
+                                <TextBlock Text=" Отчество: " />
+                                <TextBlock Text="{Binding Lastname, UpdateSourceTrigger=PropertyChanged}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+            </DataGrid>
+            <UniformGrid
+                    Grid.Row="1"
+                    Grid.ColumnSpan="3"
+                    Rows="0"
+                    Columns="3">
+                <Button
+                        Style="{StaticResource PanelButton}"
+                        Command="{Binding OpenCommand}"
+                        Content="Добавить пользователя"
+                        ToolTip="Добавление нового пользователя">
+                </Button>
+                <Button
+                        Style="{StaticResource PanelButton}"
+                        Command="{Binding OpenEditCommand}"
+                        Content="Редактировать пользователя"
+                        ToolTip="Редактирование выбранного пользователя">
+                </Button>
+                <Button
+                        Style="{StaticResource PanelButton}"
+                        Command="{Binding RemoveCommand}"
+                        Content="Удалить пользователя"
+                        ToolTip="Удалить выбранного пользователя">
+                </Button>
+            </UniformGrid>
+        </Grid>
+    </materialDesign:DialogHost>
+</UserControl>

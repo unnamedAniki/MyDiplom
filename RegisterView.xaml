@@ -1,0 +1,355 @@
+﻿<UserControl x:Class="AccoutingDocs.RegisterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AccoutingDocs"
+             xmlns:Converters="clr-namespace:AccoutingDocs.Converter"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewmodel="clr-namespace:AccoutingDocs.ViewModels"
+             mc:Ignorable="d" 
+             MinHeight="600" MinWidth="800">
+    <UserControl.DataContext>
+        <viewmodel:RegisterViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <Style x:Key="PanelButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <materialDesign:Card>
+        <Grid
+        HorizontalAlignment="Stretch"
+        Background="#0277bd">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MaxWidth="300"/>
+                <ColumnDefinition MaxWidth="300"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Border
+                Grid.Column="1"
+                Grid.ColumnSpan="3"      
+                BorderBrush="WhiteSmoke"
+                BorderThickness="0.8"
+                Background="#0277bd">
+                <Menu FontFamily="Source Sans Pro ExtraLight" 
+                      FontSize="18"
+                      Grid.Column="1"
+                      Background="#0277bd"
+                      Grid.ColumnSpan="3">
+                    <TextBox materialDesign:HintAssist.Hint="Введите фильтр..." materialDesign:TextFieldAssist.HasClearButton="True" MinWidth="200" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+                    <MenuItem Header="Фильтр"
+                              ToolTip="Произвести фильтр"
+                              Command="{Binding Search}"/>
+                    <TextBox materialDesign:HintAssist.Hint="Поиск..." materialDesign:TextFieldAssist.HasClearButton="True" MinWidth="200" Name="SearchBox"/>
+                    <MenuItem Header="Статистика"
+                              ToolTip="Краткие сведения о записях в журнале регистрации">
+                        <TextBlock Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="{Binding ArchCount, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="{Binding UsingCount, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock Text="{Binding InArchieveCount, UpdateSourceTrigger=PropertyChanged}"/>
+                    </MenuItem>
+                    <MenuItem ToolTip="Обновить журналы"
+                          Command="{Binding Refresh}">
+                        <MenuItem.Header>
+                            <materialDesign:PackIcon Kind="Refresh"/>
+                        </MenuItem.Header>
+                    </MenuItem>
+                </Menu>
+            </Border>
+            <ScrollViewer Grid.Row="1"
+                          Grid.Column="1"
+                          Grid.ColumnSpan="3"
+                          MaxHeight="450"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          HorizontalScrollBarVisibility="Hidden">
+                <StackPanel 
+                    Margin="5 0 5 0">
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        Header="Журнал регистрации входящих документов"
+                        Background="#0277bd">
+                    <DataGrid x:Name="DocumentTable" 
+                        FontFamily="Source Sans Pro ExtraLight" 
+                        IsReadOnly="True" 
+                        AutoGenerateColumns="False"
+                        SelectionMode="Single"
+                        Foreground="White"
+                        MaxHeight="250"
+                        MaxWidth="1000"
+                        Background="#0277bd"
+                        BorderBrush="WhiteSmoke"
+                        BorderThickness="0.8"
+                        materialDesign:DataGridAssist.CellPadding="5"
+                        materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                        CanUserResizeRows="False"
+                        CanUserResizeColumns="False"
+                        ItemsSource="{Binding Register, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding SelectedRegister, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGrid.Resources>
+                            <Converters:SearchConverter x:Key="SearchConverter"/>
+                            <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="16"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <MultiBinding Converter="{StaticResource SearchConverter}">
+                                            <Binding ElementName="SearchBox" Path="Text"/>
+                                            <Binding/>
+                                        </MultiBinding>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#11223344"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#11223344"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Focusable" Value="False"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
+                                <Setter Property="GridLinesVisibility" Value="None"/>
+                            </Style>
+                        </DataGrid.Resources>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn FontSize="18" Header="Номер документа" Binding="{Binding Document.Id, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Дата поступления" Binding="{Binding TakenDate, StringFormat=Дата: dd.MM.yyyy Время: HH:mm:ss, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Номер и дата исходящего" Binding="{Binding Document.Commend, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Откуда поступил" Binding="{Binding Document.NameFromNavigation.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Содержание документа" Binding="{Binding Document.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Статус документа" Binding="{Binding Status.Status1, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Ответственное лицо" Binding="{Binding Document.User.UserName, UpdateSourceTrigger=PropertyChanged}"/>
+                            </DataGrid.Columns>
+                            <DataGrid.RowDetailsTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock FontSize="18" Margin="6 6 6 6" Text="{Binding Document.NameFromNavigation.Mail, StringFormat=Электронный адрес отправителя: {0}, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <TextBlock FontSize="18" Margin="6 6 6 6" Text="{Binding Document.User.Fam, StringFormat=Фамилия ответственого: {0}, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <TextBlock FontSize="18" Margin="6 6 6 6" Text="{Binding Document.User.Name, StringFormat=Имя ответственного: {0}, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <TextBlock FontSize="18" Margin="6 6 6 6" Text="{Binding Document.User.Lastname, StringFormat=Отчетство ответственного: {0}, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGrid.RowDetailsTemplate>
+                        </DataGrid>
+                </Expander>
+                    <Border
+                    Background="{DynamicResource MaterialDesignDivider}"
+                    Height="1"
+                    HorizontalAlignment="Stretch"
+                    SnapsToDevicePixels="True" />
+                    <Expander
+                    HorizontalAlignment="Stretch"
+                    Header="Журнал учета использования входящих документов"
+                    Background="#0277bd">
+                    <DataGrid x:Name="IncomingTable" 
+                        FontFamily="Source Sans Pro ExtraLight" 
+                        IsReadOnly="True" 
+                        AutoGenerateColumns="False"
+                        SelectionMode="Single"
+                        Foreground="White"
+                        MaxHeight="250"
+                        MaxWidth="1000"
+                        Background="#0277bd"
+                        BorderBrush="WhiteSmoke"
+                        BorderThickness="0.8"
+                        materialDesign:DataGridAssist.CellPadding="5"
+                        materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                        CanUserResizeRows="False"
+                        CanUserResizeColumns="False"
+                        ItemsSource="{Binding UsingRegister, UpdateSourceTrigger=PropertyChanged}"
+                        SelectedItem="{Binding SelectedRegister, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGrid.Resources>
+                            <Converters:SearchConverter x:Key="SearchConverter"/>
+                            <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="16"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <MultiBinding Converter="{StaticResource SearchConverter}">
+                                            <Binding ElementName="SearchBox" Path="Text"/>
+                                            <Binding/>
+                                        </MultiBinding>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#11223344"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#11223344"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Focusable" Value="False"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
+                                <Setter Property="GridLinesVisibility" Value="None"/>
+                            </Style>
+                        </DataGrid.Resources>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn FontSize="18" Header="Дата записи в регистр" Binding="{Binding TakenDate, StringFormat=Дата: dd.MM.yyyy Время: HH:mm:ss, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Номер документа" Binding="{Binding Document.Id, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Содержание" Binding="{Binding Document.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Исполнитель" Binding="{Binding User.UserName, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Плановая дата возврата" Binding="{Binding ReturningDate, StringFormat=Дата: dd.MM.yyyy, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Фактическая дата возврата" Binding="{Binding Document.UsingDate, StringFormat=Дата: dd.MM.yyyy, UpdateSourceTrigger=PropertyChanged}"/>
+                            </DataGrid.Columns>
+                            <DataGrid.RowDetailsTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock FontSize="18" Margin="6 6 6 6" Text="{Binding User.Staff.Staff_Name, StringFormat=Используемое подразделение: {0}, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGrid.RowDetailsTemplate>
+                        </DataGrid>
+                </Expander>
+                    <Border
+                    Background="{DynamicResource MaterialDesignDivider}"
+                    Height="1"
+                    HorizontalAlignment="Stretch"
+                    SnapsToDevicePixels="True" />
+                    <Expander
+                        HorizontalAlignment="Stretch"
+                        Header="Журнал регистрации исходящих документов"
+                        Background="#0277bd">
+                        <DataGrid x:Name="SendingTable" 
+                            FontFamily="Source Sans Pro ExtraLight" 
+                            IsReadOnly="True" 
+                            AutoGenerateColumns="False"
+                            SelectionMode="Single"
+                            Foreground="White"
+                            MaxHeight="250"
+                            MaxWidth="1000"
+                            Background="#0277bd"
+                            BorderBrush="WhiteSmoke"
+                            BorderThickness="0.8"
+                            materialDesign:DataGridAssist.CellPadding="5"
+                            materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                            CanUserResizeRows="False"
+                            CanUserResizeColumns="False"
+                            ItemsSource="{Binding SendingRegister, UpdateSourceTrigger=PropertyChanged}"
+                            SelectedItem="{Binding SelectedRegister, UpdateSourceTrigger=PropertyChanged}">
+                        <DataGrid.Resources>
+                            <Converters:SearchConverter x:Key="SearchConverter"/>
+                            <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="16"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <MultiBinding Converter="{StaticResource SearchConverter}">
+                                            <Binding ElementName="SearchBox" Path="Text"/>
+                                            <Binding/>
+                                        </MultiBinding>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#11223344"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="#11223344"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+                                <Setter Property="BorderBrush" Value="Transparent"/>
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Focusable" Value="False"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter Property="Background" Value="Transparent"/>
+                                        <Setter Property="Foreground" Value="White"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
+                                <Setter Property="GridLinesVisibility" Value="None"/>
+                            </Style>
+                        </DataGrid.Resources>
+                            <DataGrid.Columns>
+                                <DataGridTextColumn FontSize="18" Header="Дата записи в регистр" Binding="{Binding TakenDate, StringFormat=Дата: dd.MM.yyyy Время: HH:mm:ss, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Номер документа" Binding="{Binding Document.Id, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Содержание" Binding="{Binding Document.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Исполнитель исходящего письма" Binding="{Binding Document.EditUser.UserName, UpdateSourceTrigger=PropertyChanged}"/>
+                                <DataGridTextColumn FontSize="18" Header="Предприятие-получатель" Binding="{Binding Document.NameFromNavigation.Mail, UpdateSourceTrigger=PropertyChanged}"/>
+                            </DataGrid.Columns>
+                            <DataGrid.RowDetailsTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock FontSize="18" Margin="6 6 6 6" Text="{Binding Document.EditUser.Fam, StringFormat=Фамилия исполнителя: {0}, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <TextBlock FontSize="18" Margin="6 6 6 6" Text="{Binding Document.EditUser.Name, StringFormat=Имя исполнителя: {0}, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <TextBlock FontSize="18" Margin="6 6 6 6" Text="{Binding Document.EditUser.Lastname, StringFormat=Отчетство исполнителя: {0}, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGrid.RowDetailsTemplate>
+                        </DataGrid>
+                    </Expander>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </materialDesign:Card>
+</UserControl>

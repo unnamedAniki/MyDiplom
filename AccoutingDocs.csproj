@@ -1,0 +1,124 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageIcon></PackageIcon>
+    <PackageIconUrl />
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Denis\source\repos\BlyaPizda\BlyaPizda.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\StartWin.png" />
+    <None Remove="Images\AddItem.png" />
+    <None Remove="Images\CancelInfo.png" />
+    <None Remove="Images\ChooseDates.png" />
+    <None Remove="Images\CompleteLoadMailsInfo.png" />
+    <None Remove="Images\CompleteUsing.png" />
+    <None Remove="Images\DeleteDoc.png" />
+    <None Remove="Images\DeleteItem.png" />
+    <None Remove="Images\DictPanel.png" />
+    <None Remove="Images\DocsInfo.png" />
+    <None Remove="Images\EditItem.png" />
+    <None Remove="Images\FastButton.png" />
+    <None Remove="Images\FieldText.png" />
+    <None Remove="Images\FilterButton.png" />
+    <None Remove="Images\FilterText.png" />
+    <None Remove="Images\HelpButton.png" />
+    <None Remove="Images\LoadingMailsButton.png" />
+    <None Remove="Images\MainButton.png" />
+    <None Remove="Images\MoveToArchieve.png" />
+    <None Remove="Images\NavPanel.png" />
+    <None Remove="Images\OpenDoc.png" />
+    <None Remove="Images\PanelButton.png" />
+    <None Remove="Images\PanelInfo.png" />
+    <None Remove="Images\PeriodReport.png" />
+    <None Remove="Images\Refresh.png" />
+    <None Remove="Images\ReturnFromArchieve.png" />
+    <None Remove="Images\RolesButton.png" />
+    <None Remove="Images\SaveInfo.png" />
+    <None Remove="Images\SearchDocs.png" />
+    <None Remove="Images\SendingDocs.png" />
+    <None Remove="Images\SetUsingDoc.png" />
+    <None Remove="Images\ShowUsingDocs.png" />
+    <None Remove="Images\StaffButton.png" />
+    <None Remove="Images\StaffReport.png" />
+    <None Remove="Images\UsersButton.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Word.dll">
+      <Guid>00020905-0000-0000-c000-000000000046</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\CancelInfo.png" />
+    <Resource Include="Images\ChooseDates.png" />
+    <Resource Include="Images\CompleteUsing.png" />
+    <Resource Include="Images\OpenDoc.png" />
+    <Resource Include="Images\PeriodReport.png" />
+    <Resource Include="Images\Refresh.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.10.1" />
+    <PackageReference Include="MailKit" Version="2.5.2" />
+    <PackageReference Include="MaterialDesignThemes" Version="3.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="3.1.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SplashScreen Include="Icons\StartWin.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\AddItem.png" />
+    <Resource Include="Images\CompleteLoadMailsInfo.png" />
+    <Resource Include="Images\DeleteDoc.png" />
+    <Resource Include="Images\DeleteItem.png" />
+    <Resource Include="Images\DictPanel.png" />
+    <Resource Include="Images\DocsInfo.png" />
+    <Resource Include="Images\EditItem.png" />
+    <Resource Include="Images\FastButton.png" />
+    <Resource Include="Images\FieldText.png" />
+    <Resource Include="Images\FilterButton.png" />
+    <Resource Include="Images\FilterText.png" />
+    <Resource Include="Images\HelpButton.png" />
+    <Resource Include="Images\LoadingMailsButton.png" />
+    <Resource Include="Images\MainButton.png" />
+    <Resource Include="Images\MoveToArchieve.png" />
+    <Resource Include="Images\NavPanel.png" />
+    <Resource Include="Images\PanelButton.png" />
+    <Resource Include="Images\PanelInfo.png" />
+    <Resource Include="Images\ReturnFromArchieve.png" />
+    <Resource Include="Images\SaveInfo.png" />
+    <Resource Include="Images\SearchDocs.png" />
+    <Resource Include="Images\SendingDocs.png" />
+    <Resource Include="Images\SetUsingDoc.png" />
+    <Resource Include="Images\ShowUsingDocs.png" />
+    <Resource Include="Images\StaffReport.png" />
+  </ItemGroup>
+
+</Project>

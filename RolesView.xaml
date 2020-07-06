@@ -1,0 +1,189 @@
+﻿<UserControl x:Class="AccoutingDocs.RolesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AccoutingDocs.ViewModels"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewmodel="clr-namespace:AccoutingDocs.ViewModels"
+             mc:Ignorable="d" 
+             MinHeight="350" MinWidth="700"
+             Background="#0277bd">
+
+    <UserControl.DataContext>
+        <viewmodel:RolesViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style x:Key="PanelButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid
+        VerticalAlignment="Center"
+        HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid TextBlock.Foreground="WhiteSmoke" Grid.Row="1" Margin="20 15 20 30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition MaxHeight="400"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <DataGrid
+                  MaxWidth="400"
+                  x:Name="RolesTable"
+                  Grid.Row="1"
+                  IsReadOnly="True"
+                  AutoGenerateColumns="False" 
+                  CanUserAddRows="False" 
+                  CanUserDeleteRows="False" 
+                  CanUserResizeRows="False"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="3"
+                  SelectionMode="Extended"
+                  Background="Transparent"
+                  Foreground="WhiteSmoke"
+                  GridLinesVisibility="Horizontal"
+                  ItemsSource="{Binding Roles, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedRole, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Header="Наименование роли"  Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn  Header="Уровень доступа"  Binding="{Binding Access, UpdateSourceTrigger=PropertyChanged}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <materialDesign:PackIcon Kind="GroupAdd" Width="32" Height="32" Margin="10 20"
+                                     Grid.Row="2"
+                                     VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+            <TextBox MinWidth="150" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  Foreground="WhiteSmoke" 
+                     materialDesign:HintAssist.Hint="Наименование роли" materialDesign:HintAssist.Foreground="WhiteSmoke"
+                     Grid.Column="1"
+                     Grid.Row="2"
+                     Grid.ColumnSpan="2"
+                     Name="Name_Role"
+                     Margin="10 20" MaxLength="255"
+                     Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+            <ComboBox MinWidth="150"  Style="{StaticResource MaterialDesignFloatingHintComboBox}"  Foreground="WhiteSmoke"    
+                      materialDesign:HintAssist.Hint="Уровень доступа" materialDesign:HintAssist.Foreground="WhiteSmoke"
+                      ItemsSource="{Binding Accesses, UpdateSourceTrigger=PropertyChanged}"
+                      DisplayMemberPath="Name"
+                      SelectedItem="{Binding SelectedAccess, UpdateSourceTrigger=PropertyChanged}"
+                      Grid.Column="3"
+                      Grid.Row="2"
+                      Name="Access"
+                      Margin="10 20"/>
+            <Button Style="{StaticResource PanelButton}"
+                    MinWidth="150" 
+                    materialDesign:ButtonAssist.CornerRadius="1"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Command="{Binding AddCommand}"
+                    Content="Добавить роль"/>
+            <Button Style="{StaticResource PanelButton}" 
+                    materialDesign:ButtonAssist.CornerRadius="1"
+                    Grid.Column="2"
+                    Grid.Row="3"            
+                    Command="{Binding EditCommand}"
+                    CommandParameter="{Binding SelectedItem}"
+                    ToolTip="Чтобы редактировать роль, выберите его в таблице"
+                    Content="Редактировать роль"/>
+            <Button Style="{StaticResource PanelButton}"
+                    MinWidth="150"
+                    materialDesign:ButtonAssist.CornerRadius="1"
+                    Grid.Column="3"
+                    Grid.Row="3"
+                    ToolTip="Чтобы удалить роль, выберите его в таблице"
+                    Command="{Binding RemoveCommand}"
+                    CommandParameter="{Binding SelectedRole}"
+                    Content="Удалить роль"/>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1" Margin="20 15 20 30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition MaxHeight="400"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <DataGrid
+                  MinWidth="450"
+                  x:Name="UserrolesTable"
+                  Grid.Row="1"
+                  IsReadOnly="True" 
+                  AutoGenerateColumns="False" 
+                  CanUserResizeRows="False"
+                  Grid.Column="1"
+                  Grid.ColumnSpan="3"
+                  SelectionMode="Single"
+                  Background="Transparent"
+                  Foreground="WhiteSmoke"
+                  GridLinesVisibility="Horizontal"
+                  ItemsSource="{Binding Userroles, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding CurrentRoles, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn  Header="Имя пользователя"  Binding="{Binding User.UserName, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn  Header="Роль"  Binding="{Binding Role.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <ComboBox MinWidth="150" 
+                      Grid.Column="1"
+                      Grid.Row="2"
+                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"  Foreground="WhiteSmoke"    
+                      materialDesign:HintAssist.Hint="Выберите пользователя" materialDesign:HintAssist.Foreground="WhiteSmoke"
+                      ItemsSource="{Binding Users, UpdateSourceTrigger=PropertyChanged}"
+                      DisplayMemberPath="UserName"
+                      SelectedItem="{Binding CurrentUser, UpdateSourceTrigger=PropertyChanged}"
+                      x:Name="User"
+                      Margin="10 20"/>
+            <ComboBox MinWidth="150" 
+                      Grid.Column="2"
+                      Grid.Row="2"
+                      Style="{StaticResource MaterialDesignFloatingHintComboBox}"  Foreground="WhiteSmoke"    
+                      materialDesign:HintAssist.Hint="Выберите роль" materialDesign:HintAssist.Foreground="WhiteSmoke"
+                      ItemsSource="{Binding Roles, UpdateSourceTrigger=PropertyChanged}"
+                      DisplayMemberPath="Name"
+                      SelectedItem="{Binding AddingRole, UpdateSourceTrigger=PropertyChanged}"
+                      x:Name="Role"
+                      Margin="10 20"/>
+            <Button Style="{StaticResource PanelButton}"
+                    MinWidth="150" 
+                    materialDesign:ButtonAssist.CornerRadius="1"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Command="{Binding AddRoleCommand}"
+                    Content="Добавить роль пользователю"/>
+            <Button Style="{StaticResource PanelButton}"
+                    MinWidth="150"
+                    materialDesign:ButtonAssist.CornerRadius="1"
+                    Grid.Column="2"
+                    Grid.Row="3"
+                    ToolTip="Чтобы удалить роль, выберите пользователя в таблице"
+                    Command="{Binding DeleteRoleCommand}"
+                    CommandParameter="{Binding SelectedRole}"
+                    Content="Удалить роль пользоателю"/>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="AccoutingDocs.Mail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AccoutingDocs"
+        mc:Ignorable="d"
+        MinHeight="600" MinWidth="1250"
+        Background="#0277bd">
+    <Grid Margin="5"
+          MaxWidth="1200"> 
+        <DataGrid x:Name="Mail_"
+                  IsReadOnly="True" 
+                  AutoGenerateColumns="False" 
+                  Grid.Column="1"
+                  Grid.ColumnSpan="4"
+                  SelectionMode="Extended"
+                  Background="Transparent"
+                  Foreground="WhiteSmoke"
+                  HorizontalScrollBarVisibility="Visible"
+                  GridLinesVisibility="Horizontal">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата регистрации" Binding="{Binding date}"/>
+                <DataGridTextColumn Header="Заголовок письма" Binding="{Binding Subject}"/>
+                <DataGridTextColumn Header="Электронный адрес" Binding="{Binding From}"/>
+                <DataGridTextColumn Header="Наименование файла" Binding="{Binding FileName}"/>
+                <DataGridTextColumn Header="Место сохранения документа" Binding="{Binding Attach}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,257 @@
+﻿<UserControl x:Class="AccoutingDocs.ManageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AccoutingDocs"
+             xmlns:Validation="clr-namespace:AccoutingDocs.Validation"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:viewmodel="clr-namespace:AccoutingDocs.ViewModels"
+             xmlns:Converters="clr-namespace:AccoutingDocs.Converter"
+             mc:Ignorable="d" MinHeight="600" MinWidth="800"
+             FontFamily="Source Sans Pro ExtraLight" 
+             FontSize="18">
+
+    <UserControl.DataContext>
+        <viewmodel:ManageViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <Style x:Key="PanelButton" TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatButton}">
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="ValidateText" TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFilledTextFieldTextBox}">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="Margin" Value="4"/>
+                    <Setter Property="Foreground" Value="Red"/>
+                    <Setter Property="Background" Value="CadetBlue"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <materialDesign:DialogHost
+        DialogTheme="Dark">
+        <materialDesign:DialogHost.DialogContent>
+            <StackPanel
+                MinWidth="600"
+                Background="#0277bd"
+                Margin="3"
+                Name = "DialogContent">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Foreground="White"
+                    Margin="10">
+                Подтверждение выполнения поручения
+                </TextBlock>
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Foreground="White"
+                    Margin="10">
+                    Нажмите на галочку, если вы закончили выполнять задание с выбранным документом
+                </TextBlock>
+                <StackPanel
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+                    <Button
+                        Style="{StaticResource PanelButton}"
+                        IsDefault="True"
+                        Margin="0 8 8 0"
+                        Command="{Binding Confirm}">
+                        <materialDesign:PackIcon Kind="Check"/>
+                    </Button>
+                    <Button
+                        Style="{StaticResource PanelButton}"
+                        IsCancel="True"
+                        Margin="0 8 8 0"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                        <Button.CommandParameter>
+                            <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                                False
+                            </system:Boolean>
+                        </Button.CommandParameter>
+                        <materialDesign:PackIcon Kind="Cancel"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </materialDesign:DialogHost.DialogContent>
+        <Grid
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Center"
+            Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition />
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Background="#0277bd" 
+                        Orientation="Horizontal" 
+                        HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Stretch"
+                        Grid.ColumnSpan ="3">
+                <TextBlock Text="Личные данные" 
+                       Margin="70 0 50 0"
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"/>
+                <TextBlock Text="Полученные документы" 
+                       Margin="10" 
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center"
+                       Grid.Column="2"/>
+            </StackPanel>
+            <StackPanel Background="#0277bd" 
+                        Orientation="Vertical" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center" 
+                        MinHeight="200" 
+                        MinWidth="250"
+                        Grid.Row="1"
+                        Grid.Column ="1">
+                <TextBox MinWidth="150" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  Foreground="WhiteSmoke"    
+                         materialDesign:HintAssist.Hint="Фамлиия" materialDesign:HintAssist.Foreground="WhiteSmoke"
+                         Text="{Binding Fam}"
+                         Margin="10 20" MaxLength="255"/>
+                <TextBox MinWidth="150" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  Foreground="WhiteSmoke"    
+                         materialDesign:HintAssist.Hint="Имя" materialDesign:HintAssist.Foreground="WhiteSmoke"
+                         Text="{Binding Name}"
+                         Margin="10 20" MaxLength="255"/>
+                <TextBox MinWidth="150" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  Foreground="WhiteSmoke"    
+                         materialDesign:HintAssist.Hint="Отчетство" materialDesign:HintAssist.Foreground="WhiteSmoke"
+                         Text="{Binding LastName}"
+                         Margin="10 20" MaxLength="255"/>
+                <TextBox MinWidth="150" Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"  Foreground="WhiteSmoke"    
+                         materialDesign:HintAssist.Hint="Почта" materialDesign:HintAssist.Foreground="WhiteSmoke"
+                         Text="{Binding Email}"
+                         Margin="10 20" MaxLength="255"/>
+            </StackPanel>
+            <UniformGrid
+                    Grid.Row="2"
+                    Grid.Column ="1"
+                    Rows="2">
+                <Button
+                        Style="{StaticResource PanelButton}"
+                        Command="{Binding Apply}"
+                        Content="Сохранить измменения"
+                        ToolTip="Обновить информацию">
+                </Button>
+                <Button
+                        Style="{StaticResource PanelButton}"
+                        Command="{Binding Cancel}"
+                        Content="Отмена измениний"
+                        ToolTip="Вернуть данные по-умолчанию">
+                </Button>
+            </UniformGrid>
+            <DataGrid x:Name="DocumentTable" 
+                      FontFamily="Source Sans Pro ExtraLight" 
+                    IsReadOnly="True" 
+                    AutoGenerateColumns="False"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    SelectionMode="Single"
+                    Foreground="White"
+                    MinHeight="300"
+                    Background="#0277bd"
+                    BorderBrush="WhiteSmoke"
+                    BorderThickness="0.8"
+                    materialDesign:DataGridAssist.CellPadding="5"
+                    materialDesign:DataGridAssist.ColumnHeaderPadding="8"
+                    CanUserResizeRows="False"
+                    CanUserResizeColumns="False"
+                    ItemsSource="{Binding AllDocuments, UpdateSourceTrigger=PropertyChanged}"
+                    SelectedItem="{Binding SelectedDoc, UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Resources>
+                    <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                        <Setter Property="Foreground" Value="White"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="WhiteSmoke"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style BasedOn="{StaticResource {x:Type DataGridRow}}" TargetType="{x:Type DataGridRow}">
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#11223344"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="#11223344"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style BasedOn="{StaticResource {x:Type DataGridCell}}" TargetType="{x:Type DataGridCell}">
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Focusable" Value="False"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                    <Style TargetType="DataGrid" BasedOn="{StaticResource MaterialDesignDataGrid}">
+                        <Setter Property="GridLinesVisibility" Value="None"/>
+                    </Style>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn FontSize="18" Header="Дата окончания выполнения" Binding="{Binding EndingDate, StringFormat=dd.MM.yyyy hh:mm, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn FontSize="18" Header="Вид документа" Binding="{Binding Document.IddocumentNavigation.Kind.KindName, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn FontSize="18" Header="Номер документа" Binding="{Binding Document.IddocumentNavigation.Number, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn FontSize="18" Header="Содержание документа" Binding="{Binding Document.Name, UpdateSourceTrigger=PropertyChanged}"/>
+                    </DataGrid.Columns>
+                <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="WhiteSmoke"
+                                BorderThickness="0.5"
+                                Margin="3">
+                            <StackPanel Margin="15">
+                                <StackPanel 
+                                    Orientation="Horizontal"
+                                    Margin="0 5 0 5">
+                                    <TextBlock FontFamily="Source Sans Pro ExtraLight" FontSize="18" 
+                                               Text="{Binding Comments, StringFormat=Комментарий: {0}, UpdateSourceTrigger=PropertyChanged}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+            </DataGrid>
+            <UniformGrid
+                    Grid.Row="2"
+                    Grid.Column ="2"
+                    Rows="2">
+                <Button Style="{StaticResource PanelButton}"
+                    IsDefault="True"
+                    Content="Завершить работу с выбранным документом"
+                    Command="{Binding OpenConfirm}"/>
+                <Button Style="{StaticResource PanelButton}"
+                    IsDefault="True"
+                    Content="Обновить"
+                    Command="{Binding Refresh}"/>
+            </UniformGrid>
+        </Grid>
+    </materialDesign:DialogHost>
+</UserControl>

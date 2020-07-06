@@ -1,0 +1,339 @@
+﻿<UserControl x:Class="AccoutingDocs.DIalogContents.SupportView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AccoutingDocs"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             MaxHeight="700" MinWidth="1000"
+             Opacity="1">
+    <materialDesign:Transitioner
+            SelectedIndex="0"
+            AutoApplyTransitionOrigins="True"
+            Background="#105fa8">
+        <materialDesign:Transitioner.InputBindings>
+            <KeyBinding
+                Key="Left"
+                Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}" />
+            <KeyBinding
+                Key="Right"
+                Command="{x:Static materialDesign:Transitioner.MoveNextCommand}" />
+        </materialDesign:Transitioner.InputBindings>
+        <materialDesign:TransitionerSlide
+            OpeningEffect="{materialDesign:TransitionEffect Kind=SlideInFromLeft}">
+            <Grid  Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MaxHeight="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="5"
+                    FontSize="18" Text="Cправка по главной форме" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button Grid.Column="2"
+                        Grid.Row="0"
+                        Background="Transparent"
+                        Style="{StaticResource MaterialDesignFlatButton}" 
+                        Foreground="WhiteSmoke" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                    <Button.CommandParameter>
+                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                            False
+                        </system:Boolean>
+                    </Button.CommandParameter>
+                    <materialDesign:PackIcon Kind="Close" MinHeight="5" MinWidth="5"/>
+                </Button>
+                <ScrollViewer Grid.Column="1" Grid.Row="1" Margin="10" MaxWidth="1000"
+                              VerticalScrollBarVisibility="Visible"
+                              HorizontalScrollBarVisibility="Disabled">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <UniformGrid Rows="7">
+                            <Image Source="pack://application:,,,/Images/HelpButton.png" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/MainButton.png" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/PanelButton.png" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/FastButton.png" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/PanelInfo.png" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/LoadingMailsButton.png" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/CompleteLoadMailsInfo.png" Stretch="None"/>
+                        </UniformGrid>
+                        <UniformGrid Rows="7"
+                                     Grid.Column="2">
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - При нажатии на эту кнопку, открывается диалоговое окно со справочным материалом формы, на которой вы в данный момент находитесь. Крутите колесиком мышки вверх/вниз, чтобы увидеть полное содержание справочной информации" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - При нажатии на эту кнопку, выпадает контекстное меню, в котором можно выйти из программы или же сменить учетную запись для работы" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - При нажатии на эту кнопку, появляется слева навигационная панель программы, в которой содержатся кнопки для перехода на остальные формы программы. Чтобы узнать поподробнее - смотрите следующий слайд" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - Панель быстрого доступа. Содержит быстрые ссылки на самые важные формы для пользователя. Для каждой роли свои кнопки перехода на формы." Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - В данном текстовом поле находится наименование формы, на котороый вы в данный момент находитесь " Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - В данном текстовом поле находится прогресс загрузки журнала входящих электронных писем" Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - Данная запись появляется по завершению загрузки журнала входящих электронных писем" Margin="10" VerticalAlignment="Center"/>
+                        </UniformGrid>
+                    </Grid>
+                </ScrollViewer>
+                <Button Grid.Column="2"
+                        Grid.Row="1"
+                        Background="Transparent"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" 
+                        Foreground="WhiteSmoke" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Center"
+                        Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">
+                    <materialDesign:PackIcon Kind="ArrowRight" MinHeight="25" MinWidth="25"/>
+                </Button>
+            </Grid>
+        </materialDesign:TransitionerSlide>
+        <materialDesign:TransitionerSlide>
+            <Grid  Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MaxHeight="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="5"
+                    FontSize="18" Text="Cправка по главной панели" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button Grid.Column="2"
+                        Grid.Row="0"
+                        Background="Transparent"
+                        Style="{StaticResource MaterialDesignFlatButton}" 
+                        Foreground="WhiteSmoke" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                    <Button.CommandParameter>
+                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                            False
+                        </system:Boolean>
+                    </Button.CommandParameter>
+                    <materialDesign:PackIcon Kind="Close" MinHeight="5" MinWidth="5"/>
+                </Button>
+                <Button Grid.Column="0"
+                        Grid.Row="1"
+                        Background="Transparent"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" 
+                        Foreground="WhiteSmoke" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center"
+                        Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">
+                    <materialDesign:PackIcon Kind="ArrowLeft" MinHeight="25" MinWidth="25"/>
+                </Button>
+                <ScrollViewer Grid.Column="1" Grid.Row="1" Margin="10" MaxWidth="1000"
+                              VerticalScrollBarVisibility="Visible"
+                              HorizontalScrollBarVisibility="Disabled">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="pack://application:,,,/Images/NavPanel.png" Margin="5" Stretch="Uniform"/>
+                        <TextBlock Grid.Column="2" FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - На данной панели находятся кнопки перехода на формы, которые доступные пользователю. Для каждой формы отдельный список доступных форм. При нажатии на элемент из панели, откроется соответстующая данному элементу форма. Если открыть другую форму, то текущая форма, которая была открыта, будет закрыта." Margin="10" VerticalAlignment="Center"/>
+                    </Grid>
+                </ScrollViewer>
+                <Button Grid.Column="2"
+                        Grid.Row="1"
+                        Background="Transparent"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" 
+                        Foreground="WhiteSmoke" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Center"
+                        Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">
+                    <materialDesign:PackIcon Kind="ArrowRight" MinHeight="25" MinWidth="25"/>
+                </Button>
+            </Grid>
+        </materialDesign:TransitionerSlide>
+        <materialDesign:TransitionerSlide
+                ClipToBounds="True">
+            <materialDesign:TransitionerSlide.OpeningEffects>
+                <materialDesign:TransitionEffect Kind="SlideInFromLeft" Duration="0:0:0.8" />
+                <materialDesign:TransitionEffect Kind="SlideInFromBottom" Duration="0:0:0.8" OffsetTime="0:0:0.15" />
+            </materialDesign:TransitionerSlide.OpeningEffects>
+            <Grid  Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MaxHeight="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="5"
+                    FontSize="18" Text="Cправка по справочникам" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button Grid.Column="2"
+                        Grid.Row="0"
+                        Background="Transparent"
+                        Style="{StaticResource MaterialDesignFlatButton}" 
+                        Foreground="WhiteSmoke" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                    <Button.CommandParameter>
+                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                            False
+                        </system:Boolean>
+                    </Button.CommandParameter>
+                    <materialDesign:PackIcon Kind="Close" MinHeight="5" MinWidth="5"/>
+                </Button>
+                <Button Grid.Column="0"
+                        Grid.Row="1"
+                        Background="Transparent"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" 
+                        Foreground="WhiteSmoke" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center"
+                        Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">
+                    <materialDesign:PackIcon Kind="ArrowLeft" MinHeight="25" MinWidth="25"/>
+                </Button>
+                <ScrollViewer Grid.Column="1" Grid.Row="1" Margin="10" MaxWidth="1000"
+                              VerticalScrollBarVisibility="Visible"
+                              HorizontalScrollBarVisibility="Disabled">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <UniformGrid Rows="7">
+                            <Image Source="pack://application:,,,/Images/DictPanel.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/FieldText.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/AddItem.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/EditItem.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/DeleteItem.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/FilterText.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/FilterButton.png" Margin="5" Stretch="None "/>
+                        </UniformGrid>
+                        <UniformGrid Rows="7"
+                                     Grid.Column="1">
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - Панель справочников. На данной панели представлены справочники. Чтобы перейти к нужному справочнику, необходимо нажать на соответствующую кнопку." Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - Поле, в которое необходимо ввести данные, которые требуется добавить в таблицу. Есть проверка на наличие значения в поле. Если значение отсутствует, то кнопка доабвления/редактирования будет неактивной." Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - Кнопка добавления значений поля/полей в таблицу. Есть проверка на дублирование. Если запись уже существует в таблице, то кнопка будет неактивной.  " Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - Кнопка редактирования выбранной записи значением/значениями полей в таблице. Есть проверка на дублирование и присутствие выбранной записи из таблицы. Если запись выбранна, то кнопка будет активной. Если отредактированная запись уже будет присутствовать в таблице, то появится диалоговое окно, подтверждающее это." Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - Кнопка удаления выбранной записи из таблицы. Присутствует проверка на использование данной записи в других таблицах. Если данная запись используется, то кнопка будет неактивной." Margin="10" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - Поле, в которое необходимо ввести данные для фильтрации." Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - Кнопка фильтрации. Фильтрация производится по наименованию. После нажатия на данную кнопку, появятся данные, которые соответствуют введенным в поле" Margin="10" VerticalAlignment="Center"/>
+                        </UniformGrid>
+                    </Grid>
+                </ScrollViewer>
+                <Button Grid.Column="2"
+                        Grid.Row="1"
+                        Background="Transparent"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" 
+                        Foreground="WhiteSmoke" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Center"
+                        Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">
+                    <materialDesign:PackIcon Kind="ArrowRight" MinHeight="25" MinWidth="25"/>
+                </Button>
+            </Grid>
+        </materialDesign:TransitionerSlide>
+        <materialDesign:TransitionerSlide>
+            <Grid  Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition MaxHeight="30"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock 
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Margin="5"
+                    FontSize="18" Text="Cправка по документам" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button Grid.Column="2"
+                        Grid.Row="0"
+                        Background="Transparent"
+                        Style="{StaticResource MaterialDesignFlatButton}" 
+                        Foreground="WhiteSmoke" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Top"
+                        Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                    <Button.CommandParameter>
+                        <system:Boolean xmlns:system="clr-namespace:System;assembly=mscorlib">
+                            False
+                        </system:Boolean>
+                    </Button.CommandParameter>
+                    <materialDesign:PackIcon Kind="Close" MinHeight="5" MinWidth="5"/>
+                </Button>
+                <Button Grid.Column="0"
+                        Grid.Row="1"
+                        Background="Transparent"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" 
+                        Foreground="WhiteSmoke" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Center"
+                        Command="{x:Static materialDesign:Transitioner.MovePreviousCommand}">
+                    <materialDesign:PackIcon Kind="ArrowLeft" MinHeight="25" MinWidth="25"/>
+                </Button>
+                <ScrollViewer Grid.Column="1" Grid.Row="1" Margin="10" MaxWidth="1000"
+                              VerticalScrollBarVisibility="Visible"
+                              HorizontalScrollBarVisibility="Disabled">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <UniformGrid Rows="9">
+                            <Image Source="pack://application:,,,/Images/SearchDocs.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/Refresh.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/DocsInfo.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/DeleteDoc.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/SendingDocs.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/MoveToArchieve.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/ReturnFromArchieve.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/ShowUsingDocs.png" Margin="5" Stretch="None"/>
+                            <Image Source="pack://application:,,,/Images/ShowUsingDocs.png" Margin="5" Stretch="None"/>
+                        </UniformGrid>
+                        <UniformGrid Rows="9"
+                                     Grid.Column="2">
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - Поисковое поле. Ищет по наименованию документа записи, выделяя их зеленым цветом. Ищет записи по мере заполнения и соответствия в таблице." Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - Кнопка обновления таблицы." Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - При нажатии на данный пункт меню, появляется информация о кол-ве используемых, в архиве документов и их общее количество." Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - При нажатии на данный пункт меню, производится удаление выбранной записи. Есть проверка на наличие выбранной записи и статус документа. Если запись выбранна и данный документ уже отправлен, то эту запись можно удалить. Кнопка будет активной." Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - В данном пункте меню содержатся кнопки показа и добавления отправленных документов. Есть проверка на наличие выбранной записи и статус документа. Если запись выбранная и данный документ проверен, то этот документ можно отправлять. Кнопка будет активной." Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - При нажатии на эту кнопку, происходит добавление выбранного документа в архив. Есть проверка на выбраную запись и статус документа. Если запись выбрана и статус документа проверен, то данный документ можно архивировать. Кнопка будет активной." Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - При нажатии на эту кнопку, происходит возврат документа из архива. Есть проверка на выбраную запись и статус документа. Если запись выбранна и документ находится в архиве, то кнопка будет активной." Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - При нажатии на эту кнопку, будут отображаться использованные документы." Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock FontSize="18" TextWrapping="Wrap" MaxWidth="800" TextAlignment="Justify" Text=" - При нажатии на эту кнопку, происходит возврат документа из архива. Есть проверка на выбраную запись и статус документа. Если запись выбранна и документ находится в архиве, то кнопка будет активной." Margin="5" VerticalAlignment="Center"/>
+                        </UniformGrid>
+                    </Grid>
+                </ScrollViewer>
+                <Button Grid.Column="2"
+                        Grid.Row="1"
+                        Background="Transparent"
+                        Style="{StaticResource MaterialDesignFloatingActionMiniLightButton}" 
+                        Foreground="WhiteSmoke" 
+                        HorizontalAlignment="Right" 
+                        VerticalAlignment="Center"
+                        Command="{x:Static materialDesign:Transitioner.MoveNextCommand}">
+                    <materialDesign:PackIcon Kind="ArrowRight" MinHeight="25" MinWidth="25"/>
+                </Button>
+            </Grid>
+        </materialDesign:TransitionerSlide>
+    </materialDesign:Transitioner>
+</UserControl>
