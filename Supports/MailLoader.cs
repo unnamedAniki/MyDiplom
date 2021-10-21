@@ -31,8 +31,8 @@ namespace AccoutingDocs.Supports
                         using (var client = new ImapClient())
                         {
                             client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-                            await client.ConnectAsync("imap.mail.me.com", 993, true);
-                            await client.AuthenticateAsync("karavka", "xgkr-xrop-mkfa-rvkg");
+                            await client.ConnectAsync();
+                            await client.AuthenticateAsync();
                             var inbox = client.Inbox;
                             inbox.Open(FolderAccess.ReadOnly);
                             List<Mail.Mails> mail = new List<Mail.Mails>();
